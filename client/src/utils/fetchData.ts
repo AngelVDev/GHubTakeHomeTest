@@ -1,15 +1,17 @@
 import { ICommit } from "./interfaces/ICommit";
 
-function wrapPromise(promise) {
+function wrapPromise(promise : Promise<object>) {
   let status = 'pending';
-  let response : Array<ICommit>;
-
+  let response: Array<ICommit>;
+  
   const suspender = promise.then(
-    (res: any) => {
+    (res) => {
       status = 'success';
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
       response = res;
     },
-    (err: any) => {
+    (err) => {
       status = 'error';
       response = err;
     },
