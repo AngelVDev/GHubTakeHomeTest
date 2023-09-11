@@ -15,8 +15,13 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return the first commit message', async () => {
+      const history = await appController.getCommitHistory(
+        'AngelVDev',
+        'GHubTakeHomeTest',
+      );
+      const firstCommit = history.length - 1;
+      expect(history[firstCommit].commit.message).toBe('Initial commit');
     });
   });
 });
