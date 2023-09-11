@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { IAllCommits } from './icommits.interface';
 import { ICommit } from './icommit.interface';
 
 @Injectable()
 export class AppService {
-  async getCommitHistory(owner: string, repo: string): Promise<IAllCommits> {
+  async getCommitHistory(owner: string, repo: string): Promise<ICommit[]> {
     const response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits`,
     );
