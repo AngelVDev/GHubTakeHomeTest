@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { ICommit } from './icommit.interface';
 import fetch from 'node-fetch';
@@ -5,10 +6,10 @@ import fetch from 'node-fetch';
 @Injectable()
 export class AppService {
   async getCommitHistory(owner: string, repo: string): Promise<ICommit[]> {
-    const response = await fetch(
+    const response: Response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits`,
     );
-    const data: ICommit[] = await response.json();
+    const data: Array<ICommit> = await response.json();
 
     const justRelevantData = data.map((commit: ICommit) => ({
       sha: commit.sha,
