@@ -1,8 +1,8 @@
 {
   "name": "github-app-test",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Technical Challenge for FULLTIMEFORCE",
+  "author": "Angel Scutari",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
