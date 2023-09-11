@@ -8,7 +8,7 @@ export class AppService {
     const response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits`,
     );
-    const data = await response.json();
+    const data: ICommit[] = await response.json();
 
     const justRelevantData = data.map((commit: ICommit) => ({
       sha: commit.sha,
