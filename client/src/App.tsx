@@ -16,14 +16,25 @@ function App() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const displayCommits = commitDetails.slice(currentIndex, currentIndex + 3);
+  const commitsPerPage = 3;
+
+  const displayCommits = commitDetails.slice(
+    currentIndex,
+    currentIndex + commitsPerPage,
+  );
 
   const handleNextClick = () => {
-    setCurrentIndex(currentIndex + 3);
+    const nextIndex = currentIndex + commitsPerPage;
+    if (nextIndex < commitDetails.length) {
+      setCurrentIndex(nextIndex);
+    }
   };
 
   const handlePrevClick = () => {
-    setCurrentIndex(currentIndex - 3);
+    const prevIndex = currentIndex - commitsPerPage;
+    if (prevIndex >= 0) {
+      setCurrentIndex(prevIndex);
+    }
   };
 
   return (
@@ -32,24 +43,30 @@ function App() {
         {currentIndex >= 3 ? (
           <Button
             onClick={handlePrevClick}
-            className="text-slate-50 p-2 m-1 rounded-md h-8  bg-fuchsia-950"
+            className="text-slate-50 p-2 m-1 rounded-md h-8 bg-fuchsia-950"
           >
             Newer commits
-          </Button>) : <h2 className="text-slate-50 w-1/5 text-center text-lg p-2 m-1 rounded-md bg-fuchsia-950">Scroll down</h2>
-        }
+          </Button>
+        ) : (
+          <h2 className="text-slate-50 w-1/5 text-center text-lg p-2 m-1 rounded-md bg-fuchsia-950">
+            Scroll down
+          </h2>
+        )}
         {displayCommits.map((commit: ICommit) => (
           <CommitCard key={commit.node_id} card={commit} />
         ))}
-        {currentIndex <= 3 ? (
+        {currentIndex + 3 < commitDetails.length ? (
           <Button
             onClick={handleNextClick}
             className="text-slate-50 p-2 m-1 h-8 rounded-md bg-fuchsia-950"
           >
             Older commits
           </Button>
-        )
-      : <h2 className="text-slate-50 w-1/5 text-center text-lg p-2 m-1 rounded-md bg-fuchsia-950">Scroll up</h2>
-      }
+        ) : (
+          <h2 className="text-slate-50 w-1/5 text-center text-lg p-2 m-1 rounded-md bg-fuchsia-950">
+            Scroll up
+          </h2>
+        )}
       </Suspense>
     </main>
   );
