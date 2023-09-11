@@ -1,9 +1,9 @@
 ## Description
 
-[TypeScript](https://www.typescriptlang.org/) Language used
-[React + Vite](https://vitejs.dev/) Frontend library/framework
-[Nest](https://github.com/nestjs/nest) Backend framework
-[NextUI](https://nextui.org/) Component Library + [Tailwind](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/) Language used
+- [React + Vite](https://vitejs.dev/) Frontend library/framework
+- [Nest](https://github.com/nestjs/nest) Backend framework
+- [NextUI](https://nextui.org/) Component Library + [Tailwind](https://tailwindcss.com/)
 
 ### The project
 - Shows git commit history on the same public repository I'm working.
