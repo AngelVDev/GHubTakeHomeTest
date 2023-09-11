@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ICommit } from './icommit.interface';
+import fetch from 'node-fetch';
 
 @Injectable()
 export class AppService {
