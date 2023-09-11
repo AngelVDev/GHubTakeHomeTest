@@ -1,5 +1,3 @@
-import React from 'react';
-
 type Props = {
   committerId: number;
   committerLogin: string;

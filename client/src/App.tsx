@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import { Suspense, useState } from 'react';
 import { Button } from '@nextui-org/react';
 import { fetchData } from './utils/fetchData';
 import CommitCard from './components/CommitCard';

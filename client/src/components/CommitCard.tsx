@@ -1,4 +1,3 @@
-import React from 'react';
 import { Avatar, Accordion, AccordionItem } from '@nextui-org/react';
 import { ICommit } from '../utils/interfaces/ICommit';
 import Header from './Header';
